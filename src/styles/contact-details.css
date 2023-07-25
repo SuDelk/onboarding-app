@@ -6,7 +6,24 @@
     max-width: 500px;
     /* Optional: Set the maximum width of the container */
 }
+.contact-details-container .half-width input,
+.contact-details-container .full-width input,
+.contact-details-container .half-width select,
+.contact-details-container .full-width select {
+  font-size: 10px; /* Adjust the font size as per your requirement */
+}
 
+/* Assuming you have a CSS file where you can add the following styles */
+.contact-details-container .half-width input:-moz-placeholder,
+.contact-details-container .full-width input:-moz-placeholder,
+.contact-details-container .half-width select:-moz-placeholder,
+.contact-details-container .full-width select:-moz-placeholder {
+  /* Placeholder styles for Firefox */
+  font-size: x-small;
+}
+.contact-details-container .MuiInputLabel-root{
+  font-size: 12px; /* Adjust the font size to your desired value */
+}
 .half-width {
     flex-basis: calc(50% - 8px);
     /* Adjust 8px to provide spacing between the two halves */
@@ -51,4 +68,12 @@
 
 .site-name.properties {
     color: #ffffff7d;
+}
+.flow-of-process-container{
+    padding-top: 100px;
+}
+
+.flow-of-process{
+    height: 60%;
+    width: 60%;
 }
