@@ -1,0 +1,54 @@
+.contact-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 500px;
+    /* Optional: Set the maximum width of the container */
+}
+
+.half-width {
+    flex-basis: calc(50% - 8px);
+    /* Adjust 8px to provide spacing between the two halves */
+    margin-bottom: 16px;
+    /* Optional: Add margin for spacing between the two fields */
+}
+
+/* ContactDetails.css */
+.full-width {
+    margin-bottom: 16px;
+    flex-basis: calc(100% - 8px);
+}
+
+.grid-container {
+    display: grid;
+    height: 100lvh;
+    grid-template-columns: 0.5fr 1fr;
+    /* Divide the container into two equal columns */
+}
+
+.box1 {
+    background-color: #35A0EE;
+    padding: 20px;
+}
+
+.box2 {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.site-name {
+    display: inline;
+    font-size: x-large;
+    font-weight: bold;
+
+
+}
+
+.site-name.united {
+    color: #fff;
+}
+
+.site-name.properties {
+    color: #ffffff7d;
+}
