@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif, 'Montserrat';
+  font-family: 'Montserrat', 'Montserrat Alternates';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,21 +9,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./fonts/Montserrat-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./fonts/Montserrat-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+p{
+  font-size: small;
+  color: #A4AEB4;
 }
-
-.full-page-container{
-  font-family: 'Montserrat';
-  font: 'Montserrat';
+h1,h2,h3{
+  font-family: 'Montserrat Alternates';
 }

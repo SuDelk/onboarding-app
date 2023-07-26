@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContactDetails from "./components/contact-details";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import InvestmentPlan from "./components/inestment-plans";
 
 const theme = createTheme({
   typography: {
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<ContactDetails />} />
+          <Route path="/investment-plan" element={<InvestmentPlan />} />
         </Routes>
       </Router>
     </ThemeProvider>

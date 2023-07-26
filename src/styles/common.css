@@ -1,0 +1,131 @@
+a {
+    color: #2696E8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.full-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2697e83b;
+    height: 100lvh;
+    width: 100%;
+}
+
+.grid-container {
+    max-width: 920px;
+    max-height: 600px;
+    display: grid;
+    height: 100lvh;
+    grid-template-columns: 0.5fr 1fr;
+    /* Divide the container into two equal columns */
+}
+
+.box1 {
+    background-color: #35A0EE;
+    padding: 20px;
+    padding-top: 24px;
+    padding-left: 15%;
+}
+
+.site-name {
+    display: inline;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.site-name.united {
+    color: #fff;
+}
+
+.site-name.properties {
+    color: #ffffff7d;
+}
+
+.flow-of-process-container {
+    padding-top: 40%;
+}
+
+.flow-of-process {
+    height: 65%;
+    width: 65%;
+}
+
+.quote {
+    height: 100%;
+    width: 100%;
+    margin-top: 20%;
+    margin-left: -13.5%;
+}
+
+.box2 {
+    background-color: #fff;
+    padding: 20px;
+    padding-left: 30px;
+    margin-right: 10%;
+}
+
+.header-of-page {
+    padding-top: 1%;
+    padding-bottom: 6%;
+    display: flex;
+    justify-content: space-between;
+    color: #A4AEB4;
+}
+.full-width {
+    margin-bottom: 16px;
+    flex-basis: calc(100% - 8px);
+}
+
+.half-width {
+    flex-basis: calc(50% - 2%);
+    margin-bottom: 16px;
+}
+.left-top {
+    font-size: small;
+}
+
+.right-top {
+    font-size: small;
+    margin-right: 10px;
+}
+
+.link-top {
+    display: inline-flex;
+}
+
+.next-button-and-skip {
+    margin-top: 5%;
+    display: flex;
+    justify-content: flex-end;
+    text-transform: none;
+}
+
+.next-button-and-skip Button {
+    text-transform: none;
+    font-size: 12px;
+    font-weight: 500;
+    width: fit-content;
+    margin: 1%;
+}
+
+.link-privacy {
+    display: flex;
+    align-items: center;
+    font-size: small;
+}
+
+#skip {
+    background-color: #fff;
+    box-shadow: none;
+    color: #2696E8;
+}
+
+.link-to-home {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-top: -6%;
+}
+

@@ -3,16 +3,23 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MuiPhoneNumber from "material-ui-phone-number";
 import MenuItem from "@mui/material/MenuItem";
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 import countryList from "react-select-country-list";
 import "../styles/contact-details.css";
 import "../App.css";
 import firstStepImage from '../images/firststep.png';
+import quoteForFirst from '../images/quote-page1.png';
+import '../styles/common.css';
+import { useNavigate } from "react-router-dom";
 
 function ContactDetails() {
-  const [fullName, setFullName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("");
+
+  const navigate = useNavigate();
+
+  const [fullName, setFullName] = useState(sessionStorage.getItem("fullName")?sessionStorage.getItem("fullName"):'');
+  const [phoneNumber, setPhoneNumber] = useState(sessionStorage.getItem("phoneNumber")?sessionStorage.getItem("phoneNumber"):'');
+  const [email, setEmail] = useState(sessionStorage.getItem("email")?sessionStorage.getItem("email"):'');
+  const [country, setCountry] = useState(sessionStorage.getItem("country")?sessionStorage.getItem("country"):'');
   const options = countryList().getData();
 
 
@@ -52,11 +59,11 @@ function ContactDetails() {
       setCountryError(countryError);
     }
     else {
-      // All fields are valid, proceed to the next step or submit the form
       sessionStorage.setItem("fullName", fullName);
       sessionStorage.setItem("phoneNumber", phoneNumber);
       sessionStorage.setItem("email", email);
       sessionStorage.setItem("country", country);
+      navigate('/investment-plan');
     }
   };
 
@@ -81,7 +88,6 @@ function ContactDetails() {
     setCountryError("");
   };
 
-
   return (
     <div className="full-page-container">
       <div className="grid-container">
@@ -91,24 +97,38 @@ function ContactDetails() {
           <div className="flow-of-process-container">
             <img className="flow-of-process" src={firstStepImage} alt="First Step" />
           </div>
+          <div className="quote-container">
+            <img className="quote" src={quoteForFirst} alt="First Step" />
+          </div>
         </div>
         <div className="box2">
-          <h2>Contact Details</h2>
+          <div className="header-of-page">
+            <div className="left-top">STEP 1 OF 3</div>
+            <div className="right-top">
+              Lost or have trouble?&nbsp;
+              <a href="" className="link-top">Get help&nbsp;<BsArrowRight size={15} fontWeight={700} /></a>
+            </div>
+          </div>
           <div className="contact-details-container">
+            <div style={{ marginBottom: "4.5%" }}>
+              <h2>Contact details</h2>
+              <p>Welcome to United Properties, we are glad to see you! Let’s get started by letting us know a little bit about you.</p>
+            </div>
             <div className="half-width">
               <TextField
                 label="Full Name"
                 value={fullName}
+                variant="standard"
                 onChange={handleFullNameChange}
-                required
                 fullWidth
                 error={!!fullNameError}
                 helperText={fullNameError}
               />
             </div>
-            <div className="half-width">
+            <div className="half-width lower-phone-number">
               <MuiPhoneNumber
                 value={phoneNumber}
+                variant="standard"
                 defaultCountry={"us"}
                 onChange={handlePhoneNumberChange}
                 fullWidth
@@ -118,10 +138,10 @@ function ContactDetails() {
             </div>
             <div className="full-width">
               <TextField
+                variant="standard"
                 label="Email Address"
                 value={email}
                 onChange={handleEmailChange}
-                required
                 fullWidth
                 error={!!emailError}
                 helperText={emailError}
@@ -131,12 +151,18 @@ function ContactDetails() {
               <TextField
                 select
                 label="Country"
+                variant="standard"
                 value={country}
                 onChange={handleCountryChange}
                 fullWidth
-                required
                 error={!!countryError}
                 helperText={countryError}
+                SelectProps={{
+                  style: {
+                    fontSize: "12px",
+                    fontWeight: "bold"
+                  },
+                }}
               >
                 {options.map((option) => (
                   <MenuItem key={option.value} value={option.label}>
@@ -145,9 +171,24 @@ function ContactDetails() {
                 ))}
               </TextField>
             </div>
-            <Button variant="contained" color="primary" onClick={handleNext}>
-              Next
-            </Button>
+            <div>
+              <h3>Privacy policy</h3>
+              <p>We know you care about how your personal information is used and shared, so we take your privacy seriously</p>
+              <a href="" className="link-privacy">Expand privacy policy&nbsp;<BsArrowRight size={15} fontWeight={700} /></a>
+            </div>
+          </div>
+          <div className="bottom-row">
+            <div className="next-button-and-skip">
+              <Button variant="contained" id="skip">
+                Skip for now
+              </Button>
+              <Button variant="contained" color="primary" onClick={handleNext}>
+                Next Step&nbsp;<BsArrowRight size={15} />
+              </Button>
+            </div>
+            <div className="link-to-home">
+              <a href=""><BsArrowLeft size={11} fontWeight={700} />&nbsp;Back to the homepage</a>
+            </div>
           </div>
         </div>
       </div>

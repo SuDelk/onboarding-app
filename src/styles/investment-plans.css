@@ -1,0 +1,75 @@
+.investment-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 10%;
+}
+
+.investment-details-container .half-width input,
+.investment-details-container .full-width input {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.investment-details-container .MuiInputLabel-root {
+    color: #A4AEB4;
+    font-size: 12px;
+}
+
+.investment-details-container h2 {
+    margin-bottom: -2%;
+}
+.investment-details-container h3{
+    margin-top: -2%;
+    margin-bottom: 3%;
+}
+
+.investment-details-container .MuiInputLabel-shrink {
+    color: #A4AEB4;
+    font-size: 12px;
+}
+.full-width .MuiSlider-root{
+    margin: 6px;
+}
+.full-width .MuiSlider-markLabel {
+    font-size: 12px; 
+  }
+.full-width  .MuiSlider-mark {
+    width: 3px; 
+    height: 14px; 
+    background-color: #007bff; 
+    transform: translateX(-50%) translateY(-50%); 
+  }
+  .full-width .MuiSlider-thumb {
+    height: 16px; 
+    width: 16px;
+    border-radius: 0%; 
+    background-color: #007bff; /* Set the desired color for the thumb */
+  }
+  .MuiSlider-markLabel[data-index="0"] {
+    margin-left: 20px; /* Adjust the margin-left value as needed to align with the mark */
+  }
+.credited h3{
+    margin-top: 3%;
+}/* Customize the appearance of the radio button */
+.MuiIconButton-root.MuiRadio-root {
+    padding: 0; /* Remove padding to make the circle take full space */
+    border-radius: 50%; /* Make the radio button circular */
+    border: 2px solid #D5D9DC; /* Default border color */
+  }
+  
+  /* Style the selected (checked) radio button */
+  .MuiIconButton-root.Mui-checked {
+    border: 2px solid #35A0EE; /* Border color when selected */
+  }
+  
+  /* Style the inner circle */
+  .MuiIconButton-root.MuiRadio-root:hover {
+    background-color: #F7FBFF; /* Background color on hover */
+  }
+  
+  /* Style the inner circle when selected */
+  .MuiIconButton-root.Mui-checked:hover {
+    background-color: #35A0EE; /* Background color on hover when selected */
+  }
