@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ContactDetails from "./components/contact-details";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InvestmentPlan from "./components/inestment-plans";
+import InvestmentPreferences from "./components/investment-preferences";
 
 const theme = createTheme({
   typography: {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ContactDetails />} />
           <Route path="/investment-plan" element={<InvestmentPlan />} />
+          <Route path="/investment-preferences" element={<InvestmentPreferences />} />
         </Routes>
       </Router>
     </ThemeProvider>
