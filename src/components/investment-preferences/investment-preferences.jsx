@@ -1,98 +1,55 @@
 import React, { useState } from "react";
-import { Grid, FormControlLabel, Checkbox } from "@mui/material";
-import Button from "@mui/material/Button";
+import { 
+  Grid, 
+  FormControlLabel, 
+  Checkbox, 
+  Button } from "@mui/material";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-
 import "../../styles/investment-preferences.css";
 import "../../App.css";
 import "../../styles/common.css";
-
 import thirdStepImage from "../../images/thirdstep.png";
 import quoteForThird from "../../images/quote-page3.png";
 import { isAtLeastOneCheckboxChecked } from "../validators/validators";
+import checkboxOptions from "./real-estate.json";
 
 function InvestmentPreferences() {
 
-  const [checkboxStates, setCheckboxStates] = useState({
-    singleFamily: false,
-    residentialMultiFamily: false,
-    commercialRetail: false,
-    commercialIndustrial: false,
-    commercialHospitality: false,
-    commercialWarehousing: false,
-    commercialOffice: false,
-    other: false,
+  //initailizing checkbox states ( real estate names)
+  const [checkboxStates, setCheckboxStates] = useState(() => {
+    const initialState = {};
+    checkboxOptions.forEach((option) => {
+      initialState[option.name] = false;
+    });
+    return initialState;
   });
 
-  const checkboxOptions = [
-    {
-      label: "Single family",
-      name: "singleFamily",
-    },
-    {
-      label: "Residential multifamily",
-      name: "residentialMultiFamily",
-    },
-    {
-      label: "Commercial retail",
-      name: "commercialRetail",
-    },
-    {
-      label: "Commercial industrial",
-      name: "commercialIndustrial",
-    },
-    {
-      label: "Commercial hospitality",
-      name: "commercialHospitality",
-    },
-    {
-      label: "Commercial warehousing",
-      name: "commercialWarehousing",
-    },
-    {
-      label: "Commercial office",
-      name: "commercialOffice",
-    },
-    {
-      label: "Other",
-      name: "other",
-    },
-  ];
-
   const handleCheckboxChange = (checkboxName) => (event) => {
-    setCheckboxStates({
-      ...checkboxStates,
+    setCheckboxStates((prevState) => ({
+      ...prevState,
       [checkboxName]: event.target.checked,
-    });
+    }));
   };
 
   const handleFinish = () => {
-    // Check if at least one checkbox is checked before proceeding
+    // check validation for atleast one checkbox is checked
     if (isAtLeastOneCheckboxChecked(checkboxStates)) {
       const result = {
-        fullName: sessionStorage.getItem('fullName') || '',
-        phoneNumber: sessionStorage.getItem('phoneNumber') || '',
-        email: sessionStorage.getItem('email') || '',
-        country: sessionStorage.getItem('country') || '',
-        to: sessionStorage.getItem('to') || 0,
-        from: sessionStorage.getItem('from') || 0,
-        singleFamily: checkboxStates.singleFamily,
-        residentialMultiFamily: checkboxStates.residentialMultiFamily,
-        commercialRetail: checkboxStates.commercialRetail,
-        commercialIndustrial: checkboxStates.commercialIndustrial,
-        commercialHospitality: checkboxStates.commercialHospitality,
-        commercialWarehousing: checkboxStates.commercialWarehousing,
-        commercialOffice: checkboxStates.commercialOffice,
-        other: checkboxStates.other
+        fullName: sessionStorage.getItem("fullName") || "",
+        phoneNumber: sessionStorage.getItem("phoneNumber") || "",
+        email: sessionStorage.getItem("email") || "",
+        country: sessionStorage.getItem("country") || "",
+        to: sessionStorage.getItem("to") || 0,
+        from: sessionStorage.getItem("from") || 0,
+        ...checkboxStates,
       };
       alert(result.fullName);
-      console.log(result)
-
+      console.log(result);
     } else {
-      // If no checkbox is checked, display an error message or alert
       alert("Please select at least one preference before finishing.");
     }
   };
+
   return (
     <div className="full-page-container">
       <div className="grid-container">

@@ -1,20 +1,28 @@
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
+import {
+  TextField,
+  Button,
+  MenuItem
+} from "@mui/material";
 import MuiPhoneNumber from "material-ui-phone-number";
-import MenuItem from "@mui/material/MenuItem";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import countryList from "react-select-country-list";
 import "../../styles/contact-details.css";
 import "../../App.css";
+import "../../styles/common.css";
 import firstStepImage from "../../images/firststep.png";
 import quoteForFirst from "../../images/quote-page1.png";
-import "../../styles/common.css";
-import { useNavigate } from "react-router-dom";
+import {
+  validateFullName,
+  validatePhoneNumber,
+  validateEmail,
+  validateCountry
+} from "../validators/validators";
 
-import { validateFullName, validatePhoneNumber, validateEmail, validateCountry } from "../validators/validators";
 
 function ContactDetails() {
+
   const navigate = useNavigate();
 
   const [fullName, setFullName] = useState(
@@ -88,6 +96,7 @@ function ContactDetails() {
   return (
     <div className="full-page-container">
       <div className="grid-container">
+        {/* Start of Blue left box */}
         <div className="box1">
           <div className="site-name united">UNITED</div>
           <div className="site-name properties">PROPERTIES</div>
@@ -102,6 +111,8 @@ function ContactDetails() {
             <img className="quote" src={quoteForFirst} alt="First Step" />
           </div>
         </div>
+        {/* End of Blue left box */}
+        {/* Start of White right box */}
         <div className="box2">
           <div className="header-of-page">
             <div className="left-top">STEP 1 OF 3</div>
@@ -208,6 +219,7 @@ function ContactDetails() {
             </div>
           </div>
         </div>
+        {/* End of White right box */}
       </div>
     </div>
   );

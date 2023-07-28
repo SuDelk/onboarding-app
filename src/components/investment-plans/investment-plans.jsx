@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     TextField,
     Slider,
@@ -12,11 +13,11 @@ import {
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import "../../styles/investment-plans.css";
 import "../../App.css";
+import "../../styles/common.css";
 import secondStepImage from "../../images/secondstep.png";
 import quoteForSecond from "../../images/quote-page2.png";
-import "../../styles/common.css";
-import { useNavigate } from "react-router-dom";
 import { validateFromAndTo, validateIsAccredited } from "../validators/validators";
+
 
 function InvestmentPlan() {
     const navigate = useNavigate();
@@ -32,20 +33,24 @@ function InvestmentPlan() {
             ? sessionStorage.getItem("isAccredited")
             : ""
     );
+    // store errors
     const [formErrors, setFormErrors] = useState({});
 
+    // handling 'skip for now' button
     const skip = () => {
         navigate("/investment-preferences");
     }
 
+    // handling next button
     const handleNext = () => {
         const errors = {};
 
-        // Add validation logic for 'toAmountOf' and 'isAccredited'
+        // use validations for From and To
         if (!validateFromAndTo(fromAmountOf, toAmountOf)) {
             errors.toAmountOf = "To amount must be greater than from amount";
         }
 
+        // use validations for isAccredited
         if (!validateIsAccredited(isAccredited)) {
             errors.isAccredited = "Please select an option";
         }
@@ -60,14 +65,19 @@ function InvestmentPlan() {
         }
     };
 
+    // handling functions
+    const handleChangeIsAccredited = (event) => {
+        setIsAccredited(event.target.value);
+    };
+
     const handleFromAmountChange = (event) => {
-        const newValue = event.target.value.replace(/[^0-9]/g, ""); // Allow only numbers
-        setFromAmountOf(newValue === "" ? 0 : Number(newValue)); // Convert empty string to 0
+        const newValue = event.target.value.replace(/[^0-9]/g, ""); 
+        setFromAmountOf(newValue === "" ? 0 : Number(newValue));
     };
 
     const handleToAmountChange = (event) => {
-        const newValue = event.target.value.replace(/[^0-9]/g, ""); // Allow only numbers
-        setToAmountOf(newValue === "" ? 0 : Number(newValue)); // Convert empty string to 0
+        const newValue = event.target.value.replace(/[^0-9]/g, ""); 
+        setToAmountOf(newValue === "" ? 0 : Number(newValue));
     };
 
     const handleSliderChange = (event, newValue) => {
@@ -100,10 +110,6 @@ function InvestmentPlan() {
             label: `$${formatNumberWithCommas(1000000)}+`,
         },
     ];
-
-    const handleChangeIsAccredited = (event) => {
-        setIsAccredited(event.target.value);
-    };
 
     return (
         <div className="full-page-container">
@@ -176,7 +182,7 @@ function InvestmentPlan() {
                                     `$${formatNumberWithCommas(value)}`
                                 }
                                 aria-labelledby="range-slider"
-                                marks={marks} // Pass the marks array to the Slider component
+                                marks={marks}
                             />
                         </div>
                         <div className="accredited">
@@ -192,7 +198,7 @@ function InvestmentPlan() {
                                         <div className="radio-button">
                                             <FormControlLabel
                                                 value="yes"
-                                                control={<Radio color="primary" />} // Use the primary color for the selected (checked) radio button
+                                                control={<Radio color="primary" />} 
                                                 label={
                                                     <Typography
                                                         color={isAccredited === "yes" ? "primary" : "black"}
@@ -212,7 +218,7 @@ function InvestmentPlan() {
                                         <div className="radio-button">
                                             <FormControlLabel
                                                 value="no"
-                                                control={<Radio color="primary" />} // Use the default color for the non-selected (unchecked) radio button
+                                                control={<Radio color="primary" />} 
                                                 label={
                                                     <Typography
                                                         color={isAccredited === "no" ? "primary" : "black"}
