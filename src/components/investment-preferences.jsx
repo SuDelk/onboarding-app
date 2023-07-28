@@ -40,8 +40,25 @@ function InvestmentPreferences() {
   const handleFinish = () => {
     // Check if at least one checkbox is checked before proceeding
     if (isAtLeastOneCheckboxChecked()) {
-      const result = {};
-
+      const result = {
+        fullName: sessionStorage.getItem('fullName') ? sessionStorage.getItem('fullName') : '',
+        phoneNumber: sessionStorage.getItem('phoneNumber') ? sessionStorage.getItem('fullName') : '',
+        email: sessionStorage.getItem('email') ? sessionStorage.getItem('fullName') : '',
+        country: sessionStorage.getItem('country') ? sessionStorage.getItem('fullName') : '',
+        to: sessionStorage.getItem('to') ? sessionStorage.getItem('fullName') : 0,
+        from: sessionStorage.getItem('from') ? sessionStorage.getItem('fullName') : 0,
+        isAccredited: sessionStorage.getItem('isAccredited') ? sessionStorage.getItem('fullName') : '',
+        singleFamily: checkboxStates.singleFamily,
+        residentialMultiFamily: checkboxStates.residentialMultiFamily,
+        commercialRetail: checkboxStates.commercialRetail,
+        commercialIndustrial: checkboxStates.commercialIndustrial,
+        commercialHospitality:checkboxStates.commercialHospitality,
+        commercialWarehousing: checkboxStates.commercialWarehousing,
+        commercialOffice: checkboxStates.commercialOffice,
+        other: checkboxStates.other
+      };
+      alert(result.fullName);
+      console.log(result)
 
     } else {
       // If no checkbox is checked, display an error message or alert
