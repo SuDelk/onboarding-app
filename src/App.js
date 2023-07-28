@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ContactDetails from "./components/contact-details";
+import ContactDetails from "./components/contact-details/contact-details";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import InvestmentPlan from "./components/inestment-plans";
-import InvestmentPreferences from "./components/investment-preferences";
+import InvestmentPlan from "./components/investment-plans/investment-plans";
+import InvestmentPreferences from "./components/investment-preferences/investment-preferences";
 
 const theme = createTheme({
   typography: {

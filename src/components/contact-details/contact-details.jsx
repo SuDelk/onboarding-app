@@ -5,12 +5,14 @@ import MuiPhoneNumber from "material-ui-phone-number";
 import MenuItem from "@mui/material/MenuItem";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import countryList from "react-select-country-list";
-import "../styles/contact-details.css";
-import "../App.css";
-import firstStepImage from "../images/firststep.png";
-import quoteForFirst from "../images/quote-page1.png";
-import "../styles/common.css";
+import "../../styles/contact-details.css";
+import "../../App.css";
+import firstStepImage from "../../images/firststep.png";
+import quoteForFirst from "../../images/quote-page1.png";
+import "../../styles/common.css";
 import { useNavigate } from "react-router-dom";
+
+import { validateFullName, validatePhoneNumber, validateEmail, validateCountry } from "../validators/validators";
 
 function ContactDetails() {
   const navigate = useNavigate();
@@ -36,32 +38,16 @@ function ContactDetails() {
   const [emailError, setEmailError] = useState("");
   const [countryError, setCountryError] = useState("");
 
-  const validateFullName = () => {
-    return fullName ? "" : "Please enter your full name.";
-  };
-
-  const validatePhoneNumber = () => {
-    return phoneNumber ? "" : "Please enter your phone number.";
-  };
-
-  const validateEmail = () => {
-    return email ? "" : "Please enter your email address.";
-  };
-
-  const validateCountry = () => {
-    return country ? "" : "Please select your country.";
-  };
-
   const skip = () => {
     navigate("/investment-plan");
   }
 
   const handleNext = () => {
     // Perform validation for each field
-    const fullNameError = validateFullName();
-    const phoneNumberError = validatePhoneNumber();
-    const emailError = validateEmail();
-    const countryError = validateCountry();
+    const fullNameError = validateFullName(fullName);
+    const phoneNumberError = validatePhoneNumber(phoneNumber);
+    const emailError = validateEmail(email);
+    const countryError = validateCountry(country);
 
     // If any validation errors are present, set the error messages
     if (fullNameError || phoneNumberError || emailError || countryError) {
