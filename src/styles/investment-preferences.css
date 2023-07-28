@@ -1,37 +1,60 @@
 .preferences-details-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-right: 20%;
-  }
-  
-  .preferences-details-container .half-width input,
-  .preferences-details-container .full-width input {
-    font-size: 12px;
-    font-weight: 700;
-  }
-  
-  .preferences-details-container .MuiInputLabel-root {
-    color: #a4aeb4;
-    font-size: 12px;
-  }
-  
-  .preferences-details-container h2 {
-    margin-bottom: -2%;
-    margin-top: -10%;
-  }
-  .preferences-details-container h3 {
-    margin-top: -1%;
-    margin-bottom: 3%;
-  }
-  
-  .preferences-details-container .MuiInputLabel-shrink {
-    color: #a4aeb4;
-    font-size: 12px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 20%;
+}
 
-  .MuiFormControlLabel-root{
-    border: 1px solid blue;
-    width: 100px;
-  }
+.preferences-details-container .half-width input,
+.preferences-details-container .full-width input {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.preferences-details-container .MuiInputLabel-root {
+  color: #a4aeb4;
+  font-size: 12px;
+}
+
+.preferences-details-container h2 {
+  margin-bottom: -2%;
+}
+.preferences-details-container h3 {
+  margin-top: -1%;
+  margin-bottom: 3%;
+}
+
+.preferences-details-container .MuiInputLabel-shrink {
+  color: #a4aeb4;
+  font-size: 12px;
+}
+.one-checkbox {
+  display: flex;
+  flex-direction: column; /* Add this to make the container a flex container */
+  justify-content: space-between;
+  font-family: "Montserrat";
+  font-size: smaller;
+  width: 100px;
+  height: 110px;
+  border: 2px solid #d5d9dc;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+.checked-box {
+  display: flex;
+  flex-direction: column; /* Add this to make the container a flex container */
+  justify-content: space-between;
+  font-family: "Montserrat";
+  font-size: smaller;
+  width: 100px;
+  height: 110px;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5%;
+  border: 2px solid #2696e8;
+  color: #2696e8;
+  font-weight: 500;
+}

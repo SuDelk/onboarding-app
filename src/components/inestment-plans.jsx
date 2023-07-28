@@ -32,6 +32,10 @@ function InvestmentPlan() {
   );
   const [formErrors, setFormErrors] = useState({});
 
+  const skip = () => {
+    navigate("/investment-preferences");
+  }
+
   const handleNext = () => {
     const errors = {};
 
@@ -241,7 +245,7 @@ function InvestmentPlan() {
               </a>
             </div>
             <div className="next-button-and-skip">
-              <Button variant="contained" id="skip">
+              <Button variant="contained" id="skip" onClick={skip}>
                 Skip for now
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>

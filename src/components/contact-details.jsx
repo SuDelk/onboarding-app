@@ -52,6 +52,10 @@ function ContactDetails() {
     return country ? "" : "Please select your country.";
   };
 
+  const skip = () => {
+    navigate("/investment-plan");
+  }
+
   const handleNext = () => {
     // Perform validation for each field
     const fullNameError = validateFullName();
@@ -208,7 +212,7 @@ function ContactDetails() {
               </a>
             </div>
             <div className="next-button-and-skip">
-              <Button variant="contained" id="skip">
+              <Button variant="contained" id="skip" onClick={skip}>
                 Skip for now
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>
