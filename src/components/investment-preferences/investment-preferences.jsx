@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { 
-  Grid, 
-  FormControlLabel, 
-  Checkbox, 
-  Button } from "@mui/material";
+import {
+  Grid,
+  FormControlLabel,
+  Checkbox,
+  Button
+} from "@mui/material";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import "../../styles/investment-preferences.css";
 import "../../App.css";

@@ -1,36 +1,34 @@
-
 [
-    {
-      "label": "Single family",
-      "name": "singleFamily"
-    },
-    {
-      "label": "Residential multifamily",
-      "name": "residentialMultiFamily"
-    },
-    {
-      "label": "Commercial retail",
-      "name": "commercialRetail"
-    },
-    {
-      "label": "Commercial industrial",
-      "name": "commercialIndustrial"
-    },
-    {
-      "label": "Commercial hospitality",
-      "name": "commercialHospitality"
-    },
-    {
-      "label": "Commercial warehousing",
-      "name": "commercialWarehousing"
-    },
-    {
-      "label": "Commercial office",
-      "name": "commercialOffice"
-    },
-    {
-      "label": "Other",
-      "name": "other"
-    }
-  ]
-  
+  {
+    "label": "Single family",
+    "name": "singleFamily"
+  },
+  {
+    "label": "Residential multifamily",
+    "name": "residentialMultiFamily"
+  },
+  {
+    "label": "Commercial retail",
+    "name": "commercialRetail"
+  },
+  {
+    "label": "Commercial industrial",
+    "name": "commercialIndustrial"
+  },
+  {
+    "label": "Commercial hospitality",
+    "name": "commercialHospitality"
+  },
+  {
+    "label": "Commercial warehousing",
+    "name": "commercialWarehousing"
+  },
+  {
+    "label": "Commercial office",
+    "name": "commercialOffice"
+  },
+  {
+    "label": "Other",
+    "name": "other"
+  }
+]
