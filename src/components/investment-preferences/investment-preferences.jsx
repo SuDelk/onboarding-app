@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   FormControlLabel,
@@ -13,6 +13,7 @@ import thirdStepImage from "../../images/thirdstep.png";
 import quoteForThird from "../../images/quote-page3.png";
 import { isAtLeastOneCheckboxChecked } from "../validators/validators";
 import checkboxOptions from "./real-estate.json";
+import axios from "axios";
 
 function InvestmentPreferences() {
 
@@ -32,20 +33,28 @@ function InvestmentPreferences() {
     }));
   };
 
-  const handleFinish = () => {
+  async function handleFinish () {
     // check validation for atleast one checkbox is checked
     if (isAtLeastOneCheckboxChecked(checkboxStates)) {
       const result = {
-        fullName: sessionStorage.getItem("fullName") || "",
-        phoneNumber: sessionStorage.getItem("phoneNumber") || "",
-        email: sessionStorage.getItem("email") || "",
-        country: sessionStorage.getItem("country") || "",
-        to: sessionStorage.getItem("to") || 0,
-        from: sessionStorage.getItem("from") || 0,
-        ...checkboxStates,
+        data: {
+          fullName: sessionStorage.getItem("fullName") || "",
+          phoneNumber: sessionStorage.getItem("phoneNumber") || "",
+          email: sessionStorage.getItem("email") || "",
+          country: sessionStorage.getItem("country") || "",
+          to: sessionStorage.getItem("to") || 0,
+          from: sessionStorage.getItem("from") || 0,
+          isAccredited : sessionStorage.getItem("isAccredited") || '',
+          ...checkboxStates,
+        }
       };
-      alert(result.fullName);
-      console.log(result);
+      await axios.post(`http://localhost:1337/api/profiles`, result)
+        .then(() => {
+          alert("Profile details added successfully");
+        }).catch((err) => {
+          alert("Error!!!! Check Backend Connection!");
+          console.log(err);
+        });
     } else {
       alert("Please select at least one preference before finishing.");
     }
