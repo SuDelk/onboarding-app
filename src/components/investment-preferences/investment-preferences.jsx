@@ -48,11 +48,11 @@ function InvestmentPreferences() {
           ...checkboxStates,
         }
       };
-      await axios.post(`http://localhost:1337/api/profiles`, result)
+      await axios.post(`https://strapi-onboarding-app.onrender.com/api/profiles`, result)
         .then(() => {
-          alert("Profile details added successfully");
+          alert("Onboarding details added successfully");
         }).catch((err) => {
-          alert("Error!!!! Check Backend Connection!");
+          alert("Error!!!! Check backend connection!");
           console.log(err);
         });
     } else {
