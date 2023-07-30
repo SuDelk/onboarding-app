@@ -71,12 +71,12 @@ function InvestmentPlan() {
     };
 
     const handleFromAmountChange = (event) => {
-        const newValue = event.target.value.replace(/[^0-9]/g, ""); 
+        const newValue = event.target.value.replace(/[^0-9]/g, "");
         setFromAmountOf(newValue === "" ? 0 : Number(newValue));
     };
 
     const handleToAmountChange = (event) => {
-        const newValue = event.target.value.replace(/[^0-9]/g, ""); 
+        const newValue = event.target.value.replace(/[^0-9]/g, "");
         setToAmountOf(newValue === "" ? 0 : Number(newValue));
     };
 
@@ -111,8 +111,8 @@ function InvestmentPlan() {
         },
     ];
     function goBack() {
-        navigate("/investment-plan");
-      }
+        navigate("/");
+    }
     return (
         <div className="full-page-container">
             <div className="grid-container">
@@ -135,7 +135,7 @@ function InvestmentPlan() {
                         <div className="left-top">STEP 2 OF 3</div>
                         <div className="right-top">
                             Lost or have trouble?&nbsp;
-                            <a href="" className="link-top">
+                            <a>
                                 Get help&nbsp;
                                 <BsArrowRight size={15} fontWeight={700} />
                             </a>
@@ -200,7 +200,7 @@ function InvestmentPlan() {
                                         <div className="radio-button">
                                             <FormControlLabel
                                                 value="yes"
-                                                control={<Radio color="primary" />} 
+                                                control={<Radio color="primary" />}
                                                 label={
                                                     <Typography
                                                         color={isAccredited === "yes" ? "primary" : "black"}
@@ -220,7 +220,7 @@ function InvestmentPlan() {
                                         <div className="radio-button">
                                             <FormControlLabel
                                                 value="no"
-                                                control={<Radio color="primary" />} 
+                                                control={<Radio color="primary" />}
                                                 label={
                                                     <Typography
                                                         color={isAccredited === "no" ? "primary" : "black"}
@@ -249,7 +249,7 @@ function InvestmentPlan() {
                     </div>
                     <div className="bottom-row">
                         <div className="link-to-home">
-                            <a href="" onClick={goBack}>
+                            <a onClick={goBack}>
                                 <BsArrowLeft size={11} fontWeight={700} />
                                 &nbsp;Back to the previous step
                             </a>

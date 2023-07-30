@@ -161,7 +161,7 @@ function InvestmentPreferences() {
           </div>
           <div className="bottom-row">
             <div className="link-to-home">
-              <a href='' onClick={goBack}>
+              <a onClick={goBack}>
                 <BsArrowLeft size={11} fontWeight={700} />
                 &nbsp;Back to the previous step
               </a>

@@ -118,7 +118,7 @@ function ContactDetails() {
             <div className="left-top">STEP 1 OF 3</div>
             <div className="right-top">
               Lost or have trouble?&nbsp;
-              <a href="" className="link-top">
+              <a className="link-top">
                 Get help&nbsp;
                 <BsArrowRight size={15} fontWeight={700} />
               </a>
@@ -203,7 +203,7 @@ function ContactDetails() {
           </div>
           <div className="bottom-row">
             <div className="link-to-home">
-              <a href="">
+              <a>
                 <BsArrowLeft size={11} fontWeight={700} />
                 &nbsp;Back to the homepage
               </a>

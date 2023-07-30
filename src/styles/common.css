@@ -2,6 +2,7 @@ a {
   color: #2696e8;
   text-decoration: none;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .full-page-container {
