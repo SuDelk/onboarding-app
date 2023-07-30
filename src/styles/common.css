@@ -18,8 +18,8 @@ a {
 
 .grid-container {
   align-self: self-start;
-  max-width: 1440px;
-  max-height: 900px;
+  max-width: 1080px;
+  max-height: 720px;
   display: grid;
   grid-template-columns: 0.55fr 1fr;
   /* Divide the container into two equal columns */
