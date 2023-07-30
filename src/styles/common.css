@@ -21,7 +21,7 @@ a {
   max-width: 1080px;
   max-height: 675px;
   display: grid;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: 0.55fr 1fr;
   /* Divide the container into two equal columns */
 }
