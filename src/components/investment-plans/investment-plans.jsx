@@ -110,7 +110,9 @@ function InvestmentPlan() {
             label: `$${formatNumberWithCommas(1000000)}+`,
         },
     ];
-
+    function goBack() {
+        navigate("/investment-plan");
+      }
     return (
         <div className="full-page-container">
             <div className="grid-container">
@@ -247,7 +249,7 @@ function InvestmentPlan() {
                     </div>
                     <div className="bottom-row">
                         <div className="link-to-home">
-                            <a href="/">
+                            <a href="" onClick={goBack}>
                                 <BsArrowLeft size={11} fontWeight={700} />
                                 &nbsp;Back to the previous step
                             </a>

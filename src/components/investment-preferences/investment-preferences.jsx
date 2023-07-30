@@ -16,8 +16,10 @@ import quoteForThird from "../../images/quote-page3.png";
 import { isAtLeastOneCheckboxChecked } from "../validators/validators";
 import checkboxOptions from "./real-estate.json";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function InvestmentPreferences() {
+
   const [isLoading, setIsLoading] = useState(false);
 
   //initailizing checkbox states ( real estate names)
@@ -36,7 +38,7 @@ function InvestmentPreferences() {
     }));
   };
 
-  async function handleFinish () {
+  async function handleFinish() {
     setIsLoading(true);
     // check validation for atleast one checkbox is checked
     if (isAtLeastOneCheckboxChecked(checkboxStates)) {
@@ -48,31 +50,31 @@ function InvestmentPreferences() {
           country: sessionStorage.getItem("country") || "",
           to: sessionStorage.getItem("to") || 0,
           from: sessionStorage.getItem("from") || 0,
-          isAccredited : sessionStorage.getItem("isAccredited") || '',
+          isAccredited: sessionStorage.getItem("isAccredited") || '',
           ...checkboxStates,
         }
       };
-      try{
-      await axios.post(`https://strapi-onboarding-app.onrender.com/api/profiles`, result)
-      .then(() => {
-        Swal.fire({
-          title: 'Successful!',
-          text: 'Onboarding process done!',
-          icon: 'success',
-          confirmButtonText: 'OK',
-        });
-      }).catch((err) => {
-        Swal.fire({
-          title: 'Error!',
-          text: 'Check the backend connection!',
-          icon: 'error',
-          confirmButtonText: 'OK',
-        });
-        console.log(err);
-      })
-        } finally {
-          setIsLoading(false); // Hide the loader after API call is complete
-        }
+      try {
+        await axios.post(`https://strapi-onboarding-app.onrender.com/api/profiles`, result)
+          .then(() => {
+            Swal.fire({
+              title: 'Successful!',
+              text: 'Onboarding process done!',
+              icon: 'success',
+              confirmButtonText: 'OK',
+            });
+          }).catch((err) => {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Check the backend connection!',
+              icon: 'error',
+              confirmButtonText: 'OK',
+            });
+            console.log(err);
+          })
+      } finally {
+        setIsLoading(false); // Hide the loader after API call is complete
+      }
     } else {
       setIsLoading(false);
       Swal.fire({
@@ -83,7 +85,10 @@ function InvestmentPreferences() {
       });
     }
   };
-
+  const navigate = useNavigate();
+  function goBack() {
+    navigate("/investment-plan");
+  }
   return (
     <div className="full-page-container">
       <div className="grid-container">
@@ -106,7 +111,7 @@ function InvestmentPreferences() {
             <div className="left-top">STEP 3 OF 3</div>
             <div className="right-top">
               Lost or have trouble?&nbsp;
-              <a href="" className="link-top">
+              <a className="link-top">
                 Get help&nbsp;
                 <BsArrowRight size={15} fontWeight={700} />
               </a>
@@ -156,7 +161,7 @@ function InvestmentPreferences() {
           </div>
           <div className="bottom-row">
             <div className="link-to-home">
-              <a href="/investment-plan">
+              <a href='' onClick={goBack}>
                 <BsArrowLeft size={11} fontWeight={700} />
                 &nbsp;Back to the previous step
               </a>
@@ -170,15 +175,15 @@ function InvestmentPreferences() {
               </Button>
             </div>
           </div>
-           {/* Loader */}
-      {isLoading && (
-        <div className="loader-overlay">
-          <div className="loader">
-            {/* You can put your custom loader content here */}
-            Loading...
-          </div>
-        </div>
-      )}
+          {/* Loader */}
+          {isLoading && (
+            <div className="loader-overlay">
+              <div className="loader">
+                {/* You can put your custom loader content here */}
+                Loading...
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
