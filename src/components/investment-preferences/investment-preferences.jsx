@@ -55,7 +55,7 @@ function InvestmentPreferences() {
         }
       };
       try {
-        await axios.post(`https://strapi-onboarding-app.onrender.com/api/profiles`, result)
+        await axios.post(`https://strapi-onboarding-backend.onrender.com/api/profiles`, result)
           .then(() => {
             Swal.fire({
               title: 'Successful!',
