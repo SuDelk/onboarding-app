@@ -18,8 +18,8 @@ a {
 
 .grid-container {
   align-self: self-start;
-  max-width: 1020px;
-  max-height: 690px;
+  max-width: 1080px;
+  max-height: 675px;
   display: grid;
   height: 100vh;
   grid-template-columns: 0.55fr 1fr;
