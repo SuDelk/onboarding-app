@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Grid,
   FormControlLabel,
@@ -6,9 +6,11 @@ import {
   Button
 } from "@mui/material";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import Swal from 'sweetalert2';
 import "../../styles/investment-preferences.css";
 import "../../App.css";
 import "../../styles/common.css";
+import 'sweetalert2/dist/sweetalert2.min.css';
 import thirdStepImage from "../../images/thirdstep.png";
 import quoteForThird from "../../images/quote-page3.png";
 import { isAtLeastOneCheckboxChecked } from "../validators/validators";
@@ -16,6 +18,7 @@ import checkboxOptions from "./real-estate.json";
 import axios from "axios";
 
 function InvestmentPreferences() {
+  const [isLoading, setIsLoading] = useState(false);
 
   //initailizing checkbox states ( real estate names)
   const [checkboxStates, setCheckboxStates] = useState(() => {
@@ -34,6 +37,7 @@ function InvestmentPreferences() {
   };
 
   async function handleFinish () {
+    setIsLoading(true);
     // check validation for atleast one checkbox is checked
     if (isAtLeastOneCheckboxChecked(checkboxStates)) {
       const result = {
@@ -48,15 +52,35 @@ function InvestmentPreferences() {
           ...checkboxStates,
         }
       };
+      try{
       await axios.post(`https://strapi-onboarding-app.onrender.com/api/profiles`, result)
-        .then(() => {
-          alert("Onboarding details added successfully");
-        }).catch((err) => {
-          alert("Error!!!! Check backend connection!");
-          console.log(err);
+      .then(() => {
+        Swal.fire({
+          title: 'Successful!',
+          text: 'Onboarding process done!',
+          icon: 'success',
+          confirmButtonText: 'OK',
         });
+      }).catch((err) => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Check the backend connection!',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
+        console.log(err);
+      })
+        } finally {
+          setIsLoading(false); // Hide the loader after API call is complete
+        }
     } else {
-      alert("Please select at least one preference before finishing.");
+      setIsLoading(false);
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please select at least one preference before finishing!',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     }
   };
 
@@ -146,6 +170,15 @@ function InvestmentPreferences() {
               </Button>
             </div>
           </div>
+           {/* Loader */}
+      {isLoading && (
+        <div className="loader-overlay">
+          <div className="loader">
+            {/* You can put your custom loader content here */}
+            Loading...
+          </div>
+        </div>
+      )}
         </div>
       </div>
     </div>
