@@ -4,7 +4,7 @@ export const validateFullName = (fullName) => {
 };
 
 export const validatePhoneNumber = (phoneNumber) => {
-    const phoneRegex = /^\+[1-9]\d{0,2}\s?\d{3,14}$/;
+    const phoneRegex = /^\+[1-9]\d{0,2}\s?\(\d{3}\)\s?\d{3}-\d{4}$|^\+[1-9]\d{0,2}\s?\d{3,14}$/;
     return phoneRegex.test(phoneNumber) ? "" : "Please enter a valid phone number with the country code.";
   };
 
