@@ -12,16 +12,15 @@ a {
   background-color: #2697e83b;
   padding: 2%;
   padding-bottom: 8%;
-  height: 120%;
+  height: 120vh;
   width: 100%;
 }
 
 .grid-container {
   align-self: self-start;
-  max-width: 1080px;
-  max-height: 675px;
+  max-width: 1440px;
+  max-height: 900px;
   display: grid;
-  height: 100%;
   grid-template-columns: 0.55fr 1fr;
   /* Divide the container into two equal columns */
 }
