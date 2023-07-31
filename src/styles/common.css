@@ -66,6 +66,7 @@ a {
 }
 
 .box2 {
+  font-weight: 500;
   background-color: #fff;
   padding: 20px;
   padding-left: 30px;
@@ -80,6 +81,7 @@ a {
   padding-bottom: 6%;
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
   color: #a4aeb4;
   margin-right: 5%;
 }
@@ -93,10 +95,12 @@ a {
   margin-bottom: 16px;
 }
 .left-top {
+  font-weight: 500;
   font-size: small;
 }
 
 .right-top {
+  font-weight: 500;
   font-size: small;
   margin-right: 10px;
 }
