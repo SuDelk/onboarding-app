@@ -20,8 +20,6 @@ import { useNavigate } from "react-router-dom";
 
 function InvestmentPreferences() {
 
-  const [isLoading, setIsLoading] = useState(false);
-
   //initailizing checkbox states ( real estate names)
   const [checkboxStates, setCheckboxStates] = useState(() => {
     const initialState = {};
@@ -37,6 +35,8 @@ function InvestmentPreferences() {
       [checkboxName]: event.target.checked,
     }));
   };
+
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleFinish() {
     setIsLoading(true);
@@ -63,6 +63,8 @@ function InvestmentPreferences() {
               icon: 'success',
               confirmButtonText: 'OK',
             });
+            sessionStorage.clear();
+            navigate('/');
           }).catch((err) => {
             Swal.fire({
               title: 'Error!',
@@ -85,7 +87,9 @@ function InvestmentPreferences() {
       });
     }
   };
+
   const navigate = useNavigate();
+
   function goBack() {
     navigate("/investment-plan");
   }
@@ -179,8 +183,7 @@ function InvestmentPreferences() {
           {isLoading && (
             <div className="loader-overlay">
               <div className="loader">
-                {/* You can put your custom loader content here */}
-                Loading...
+                Loading
               </div>
             </div>
           )}
