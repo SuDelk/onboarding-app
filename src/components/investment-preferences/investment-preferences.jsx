@@ -128,7 +128,7 @@ function InvestmentPreferences() {
             <h3>What kind of real estate are you interested in?</h3>
             <Grid container spacing={2}>
               <Grid item xs={12} className="checkbox-row">
-                <Grid container spacing={8}>
+                <Grid container spacing={4}>
                   {checkboxOptions.map((option) => (
                     <Grid key={option.name} item xs={3}>
                       <div
